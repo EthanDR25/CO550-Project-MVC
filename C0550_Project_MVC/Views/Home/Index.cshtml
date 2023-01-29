@@ -1,0 +1,39 @@
+﻿@using C0550_Project_MVC.Controllers
+@using CO550_Project_Razor.Models
+@using System.Web;
+
+
+@{
+    ViewData["Title"] = "Display Data";
+}
+
+<div class="text-center">
+    
+
+<br>
+    @{
+       
+
+        if(Model != null)
+    {
+        foreach(var Data in Model)
+        {
+                            <div class="card" style="width: 18rem; margin:auto;">
+                            <div class="card-body">
+                            <p style="font-size:28px;">@Data.Title</p>
+                           <p style="font-weight:bold">Runtime:</p><p>@Data.Duration minutes</p>
+                           <p style="font-weight:bold">Genre:</p><p>@Data.Genre</p>
+                           <p style="font-weight:bold">Director:</p><p>@Data.Director</p>
+                            <p style="color:blue; font-size:17px;">£@Data.Price</p>
+                            <button href="#" type="button" onclick="()=> booking.BookTicket(Data.FilmID)" asp-for="Data.Title">Book</button>
+                            </div>
+                            </div>
+                <br>
+
+            }
+        }
+
+
+}
+
+</div>
